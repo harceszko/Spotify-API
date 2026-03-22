@@ -1,4 +1,5 @@
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header class="felso-navigacio">
         <div class="nav-bal-oldal">
             <div class="spotify-logo"><i class="fab fa-spotify"></i></div>
-            <div class="kezdolap-ikon"><i class="fas fa-home"></i></div>
+            <div class="kezdolap-ikon" id="home-gomb" style="cursor: pointer;"><i class="fas fa-home"></i></div>
             <div class="kereso-sav-keret">
                 <i class="fas fa-search kereso-ikon"></i>
                 <input type="text" placeholder="Mit szeretnél lejátszani?">
@@ -18,7 +20,7 @@
                 <i class="fas fa-briefcase taska-ikon"></i>
             </div>
         </div>
-        
+
         <div class="nav-jobb-oldal">
             <div class="nav-linkek">
                 <span>Premium</span>
@@ -39,7 +41,7 @@
                 <span class="gyujtemeny-cim"><i class="fas fa-layer-group"></i> Gyűjteményem</span>
                 <button class="gomb-letrehozas"><i class="fas fa-plus"></i> Létrehozás</button>
             </div>
-        
+
             <div class="oldalsav-kartya">
                 <h3>Hozd létre az első műsorlistád!</h3>
                 <p>Pofonegyszerű, ráadásul még segítünk is.</p>
@@ -49,7 +51,7 @@
             <div class="oldalsav-kartya">
                 <h3>Keressünk pár podcastot, amelyet követhetsz!</h3>
                 <p>Szólni fogunk, ha van új epizód.</p>
-                <button class="feher-gomb">Podcastok böngészése</button>
+                <button id="podcast-gomb" class="feher-gomb">Podcastok böngészése</button>
             </div>
 
             <div class="oldalsav-lablec">
@@ -67,31 +69,82 @@
                 </button>
             </div>
         </div>
-
         <div class="fo-tartalom">
-            <section>
-                <div class="szekcio-fejlec">
-                    <h2>Felkapott dalok</h2>
-                    <span>Összes</span>
-                </div>
-                <div id="felkapott-dalok-racs" class="racs"></div>
-            </section>
+            <div id="kezdo-oldal-reteg">
+                <section>
+                    <h2 style="margin-bottom: 20px;">Népszerű előadók</h2>
+                    <div id="nepszeru-eloadok-racs" class="racs">
+                    </div>
+                </section>
 
-            <section>
-                <div class="szekcio-fejlec">
-                    <h2>Népszerű előadók</h2>
-                    <span>Összes</span>
+                <section style="margin-top: 40px;">
+                    <h2 style="margin-bottom: 20px;">Drake a reflektorfényben</h2>
+                    <div id="drake-radio-racs" class="racs">
+                    </div>
+                </section>
+                <section style="margin-top: 40px;">
+                    <h2 style="margin-bottom: 20px;">The Weeknd a reflektorfényben</h2>
+                    <div id="weeknd-reflektor-racs" class="racs">
+                    </div>
+                </section>
+            </div>
+            <div id="kereses-eredmenyek"></div>
+
+            <div id="sablonok" style="display: none;">
+
+                <div class="felso-resz-minta" style="display: flex; gap: 24px; margin-bottom: 40px;">
+                    <div style="flex: 1;">
+                        <h2>Legjobb találat</h2>
+                        <div class="legjobb-kartya kartya-doboz"
+                            style="background: #181818; padding: 20px; border-radius: 8px;">
+                            <img class="legjobb-kep" src=""
+                                style="width: 92px; height: 92px; border-radius: 50%; object-fit: cover;">
+                            <h1 class="legjobb-nev" style="font-size: 32px; margin: 16px 0 8px 0;"></h1>
+                            <span
+                                style="background: #000; padding: 4px 12px; border-radius: 20px; font-size: 12px;">Előadó</span>
+                        </div>
+                    </div>
+                    <div style="flex: 1.5;">
+                        <h2>Dalok</h2>
+                        <div class="dal-lista-kontener"></div>
+                    </div>
                 </div>
-                <div id="nepszeru-eloadok-racs" class="racs"></div>
-            </section>
+
+                <div class="dal-sor-minta"
+                    style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-radius: 4px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <img class="dal-kep" src="" style="width: 40px; height: 40px;">
+                        <div>
+                            <div class="dal-cim" style="font-weight: bold;"></div>
+                            <div class="dal-eloado" style="font-size: 12px; color: #b3b3b3;"></div>
+                        </div>
+                    </div>
+                    <div class="dal-ido" style="color: #b3b3b3; font-size: 12px;"></div>
+                </div>
+
+                <div class="kartya-minta kartya-doboz">
+                    <img class="kartya-kep" src="">
+                    <div class="kartya-cim" style="font-weight: bold;"></div>
+                    <div class="kartya-alcim" style="color: #b3b3b3; font-size: 13px;"></div>
+                </div>
+            </div>
+            <div id="podcast-reteg" style="display: none; padding: 20px;">
+                <h2 style="margin-bottom: 20px;">Kategóriák</h2>
+                <div id="kategoria-racs" class="kategoria-grid">
+                </div>
+            </div>
         </div>
     </div>
+
     <footer class="lablec-reklam-sav">
         <div class="reklam-tartalom">
             <p class="reklam-felirat-felso">Belehallgatás a Spotifyba</p>
-            <p class="reklam-szoveg">Regisztrálj, és máris korlátlan hozzáférésed lesz a dalokhoz és podcastokhoz, alkalmankénti reklámokkal. Nem kell hozzá hitelkártya.</p>
+            <p class="reklam-szoveg">Regisztrálj, és máris korlátlan hozzáférésed lesz a dalokhoz és podcastokhoz,
+                alkalmankénti reklámokkal. Nem kell hozzá hitelkártya.</p>
         </div>
         <button class="reklam-gomb">Ingyenes regisztráció</button>
     </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
