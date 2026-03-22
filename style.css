@@ -60,3 +60,145 @@ body {
     padding: 12px 30px; border-radius: 30px;
     font-weight: bold; font-size: 15px; cursor: pointer;
 }
+
+/* Elrendezés váza */
+.fo-elrendezes { 
+    display: flex; 
+    height: calc(100vh - 140px); 
+    padding: 0 8px; 
+    gap: 8px; 
+}
+
+/* Oldalsáv */
+.oldalsav {
+    width: 320px; 
+    background: #121212; 
+    border-radius: 8px;
+    padding: 15px; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.gyujtemeny-fejlec {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px 8px; 
+    margin-bottom: 8px;
+}
+
+.gyujtemeny-cim { 
+    color: #b3b3b3; 
+    font-weight: bold; 
+    font-size: 16px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
+
+.gomb-letrehozas {
+    background: #242424; 
+    color: white; 
+    border: none;
+    padding: 6px 12px; 
+    border-radius: 20px;
+    font-weight: bold; 
+    font-size: 13px; 
+    cursor: pointer;
+}
+
+.oldalsav-kartya {
+    background: #1f1f1f; 
+    border-radius: 10px; 
+    padding: 16px 20px; 
+    margin-bottom: 12px;
+}
+
+.feher-gomb {
+    background: white; 
+    border: none; 
+    padding: 8px 16px;
+    border-radius: 20px; 
+    font-weight: bold; 
+    font-size: 13px; 
+    cursor: pointer;
+}
+
+.oldalsav-lablec { 
+    margin-top: auto; 
+    padding: 20px 8px; 
+}
+
+.lablec-linkek { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 12px 15px; 
+    margin-bottom: 30px; 
+}
+
+.lablec-linkek a { 
+    color: #b3b3b3; 
+    text-decoration: none; 
+    font-size: 11px; 
+}
+
+.nyelv-valaszto {
+    background: transparent; 
+    color: white; 
+    border: 1px solid #727272;
+    padding: 6px 15px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+
+/* Fő tartalom */
+.fo-tartalom {
+    flex: 1; 
+    background: linear-gradient(to bottom, #1e1e1e, #121212);
+    border-radius: 8px; 
+    padding: 20px; 
+    overflow-y: auto;
+}
+
+.szekcio-fejlec { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    margin-bottom: 20px; 
+}
+
+.szekcio-fejlec h2 { 
+    margin: 0; 
+    font-size: 22px; 
+}
+
+.racs {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 15px; 
+    margin-bottom: 30px;
+}
+
+/* Kártyák (amiket a JS hoz be) */
+.kartya-doboz {
+    background: #181818; 
+    padding: 15px; 
+    border-radius: 8px; 
+    transition: 0.3s;
+}
+
+.kartya-doboz:hover { 
+    background: #282828; 
+}
+
+.kartya-doboz img { 
+    width: 100%; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+}
+
+.kerek-kep img { 
+    border-radius: 50%; 
+}
+
